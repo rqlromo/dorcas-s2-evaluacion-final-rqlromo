@@ -15,6 +15,7 @@ function getSerie(){
   var fillImage;
   var imageSerie;
   var tagBoxSeries;
+
   parentBox.innerHTML = ' ';
   //console.log(inputSerie);
   //console.log('valor de input serie:', serie);
@@ -37,7 +38,7 @@ function getSerie(){
         imageNoExist = buscardorSeriesJSON[i].show.image;
         if (imageNoExist === null ){
           //console.log('entro aqui en algun momento?');
-          fillImage = 'https://via.placeholder.com/210x295/ccacccc/6aaaa6/?text=:(';
+          fillImage = 'https://via.placeholder.com/210x295/d0d0d0/46DAC0/?text=:(';
           tagImageSerie.src = fillImage;
         } else {
           //console.log('me vuelvo loca:', buscardorSeriesJSON[i].show.image);
@@ -61,15 +62,11 @@ function getSerie(){
         tagBoxSeries.appendChild(tagImageSerie);
         parentBox.appendChild(tagBoxSeries);
         body.appendChild(parentBox);
-        //.setAttribute('class', 'box-series');
       }
     });
 }
 
 
-// fucntion favourites(){
-
-// }
-
-
 searchSerie.addEventListener('click',getSerie);
+
+
