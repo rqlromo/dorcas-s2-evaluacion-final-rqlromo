@@ -15,7 +15,7 @@ function getSerie(){
   var fillImage;
   var imageSerie;
   var tagBoxSeries;
-
+  var listSeries;
   parentBox.innerHTML = ' ';
   //console.log(inputSerie);
   //console.log('valor de input serie:', serie);
@@ -62,10 +62,18 @@ function getSerie(){
         tagBoxSeries.appendChild(tagImageSerie);
         parentBox.appendChild(tagBoxSeries);
         body.appendChild(parentBox);
+        tagBoxSeries.setAttribute('class', 'box-series');
+        listSeries = document.querySelectorAll('.box-series');
+        tagBoxSeries.addEventListener('click',favourites);
       }
+      console.log('listSeries',listSeries);
     });
 }
 
+function favourites(event){
+  console.log(event.currentTarget);
+  event.currentTarget.classList.add('background');
+}
 
 searchSerie.addEventListener('click',getSerie);
 

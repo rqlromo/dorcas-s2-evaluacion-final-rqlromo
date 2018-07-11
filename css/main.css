@@ -1,5 +1,10 @@
-.bacground {
+.background {
   background-color: black;
+  color: red;
+}
+
+.background p {
+  color: red;
 }
 
 /*# sourceMappingURL=main.css.map */
