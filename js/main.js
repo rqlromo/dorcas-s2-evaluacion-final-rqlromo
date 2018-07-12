@@ -16,7 +16,6 @@ function getSerie(){
   var fillImage;
   var imageSerie;
   var tagBoxSeries;
-  var listSeries;
   var tagBoxTitleSerie;
   var tagBoxPosition;
   var tagFavouriteStar;
@@ -85,7 +84,6 @@ function getSerie(){
         //Escuchamos el evento, cuando cliquemos una imagen se selecciona como favorita
         tagBoxSeries.addEventListener('click',favourites);
       }
-      console.log('listSeries',listSeries);
     });
 }
 
