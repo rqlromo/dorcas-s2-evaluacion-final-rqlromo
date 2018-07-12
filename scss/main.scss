@@ -1,6 +1,90 @@
+// estilos favoritos
 .background {
-  background-color: black;
-  p{
-    color:red;
+
+    background: linear-gradient(rgba(70,218,192,0.6), rgba(255,192,203,0.6));
+    border-radius: 6px;
+
+  .box-title-serie{
+    width: 120%;
+  }
+
+  .title-serie{
+    color: #ffff00;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  .favourite-star{
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 90px;
+    width: 90px;
+    background-image: url('../images/star_favourite_15499.png');
+    background-size: cover;
+  }
+
+  .box-position{
+    transform: scale(1.1);
   }
 }
+
+// estilos pagina
+
+body{
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  background-color: #E3E2DD;
+}
+
+h1{
+  margin-top:50px;
+  font-size: 36px;
+}
+
+.box-head{
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  color: lightgreen;
+  margin-bottom: 50px;
+}
+
+.wrapper{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-row-gap: 10px;
+  grid-column-gap: 10px;
+}
+
+.box-series{
+  text-align: center;
+  position: relative;
+  height: 385px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-title-serie{
+  background-color: rgba(24, 26, 25, 0.8);
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 210px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title-serie{
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  color: hotpink;
+  font-size: 18px;
+}
+

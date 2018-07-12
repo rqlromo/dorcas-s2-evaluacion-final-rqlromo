@@ -4,6 +4,7 @@ var inputSerie = document.querySelector('.input-serie');
 var searchSerie = document.querySelector('.search-serie');
 var body = document.querySelector('body');
 var parentBox = document.createElement('div');
+parentBox.setAttribute('class', 'wrapper');
 
 function getSerie(){
   var serie = inputSerie.value;
@@ -15,7 +16,9 @@ function getSerie(){
   var fillImage;
   var imageSerie;
   var tagBoxSeries;
-  var listSeries;
+  var tagBoxTitleSerie;
+  var tagBoxPosition;
+  var tagFavouriteStar;
   parentBox.innerHTML = ' ';
   //console.log(inputSerie);
   //console.log('valor de input serie:', serie);
@@ -33,7 +36,9 @@ function getSerie(){
       //console.log('series de json api series:',buscardorSeriesJSON[0].show.image.original);
       for(var i = 0; i < buscardorSeriesJSON.length; i++){
         tagBoxSeries = document.createElement('div');
+        tagBoxSeries.setAttribute('class', 'box-series');
         tagImageSerie = document.createElement('img');
+        tagImageSerie.setAttribute('class', 'image-serie');
         //console.log('muestrame todas las url de las imagenes:',buscardorSeriesJSON[i].show.image);
         imageNoExist = buscardorSeriesJSON[i].show.image;
         if (imageNoExist === null ){
@@ -44,29 +49,41 @@ function getSerie(){
           //console.log('me vuelvo loca:', buscardorSeriesJSON[i].show.image);
           imageSerie = buscardorSeriesJSON[i].show.image.medium;
           //console.log('tienes url de imagen?',imageSerie);
-          //Cremaos nuestra etiqueta imagen
-          //insertamos imagen en body
+          //almacenamos la url de la imagen en el atributo src de la etiqueta imagen
           tagImageSerie.src = imageSerie;
         }
         //pasamos el bucle for por cada elemento del Json y recogemos el titulo
         tileSerie = buscardorSeriesJSON[i].show.name;
-        //Cremaos nuestra etiqueta parrafo
-        tagTitleSerie = document.createElement('p');
         //Creamos el contenido del titulo de la serie
         newContentSerieTitle = document.createTextNode(tileSerie);
-        //Insertamos el parrafo en el body
-        body.appendChild(tagTitleSerie);
-        //insertamos el titulo en el parrafo
+
+        // Cremaos nuestras etiquetas
+        tagTitleSerie = document.createElement('p');
+        tagBoxTitleSerie = document.createElement('div');
+        tagBoxPosition = document.createElement('div');
+        tagFavouriteStar = document.createElement('div');
+
+
+        // Le damos clase a nuestras etiquetas
+        tagTitleSerie.setAttribute('class', 'title-serie');
+        tagBoxTitleSerie.setAttribute('class', 'box-title-serie');
+        tagBoxPosition.setAttribute('class', 'box-position');
+        tagFavouriteStar.setAttribute('class', 'favourite-star');
+
+
+        // Creamos la esructura insetarnos unas etiquetas en otras
         tagTitleSerie.appendChild(newContentSerieTitle);
-        tagBoxSeries.appendChild(tagTitleSerie);
-        tagBoxSeries.appendChild(tagImageSerie);
+        tagBoxTitleSerie.appendChild(tagTitleSerie);
+        tagBoxPosition.appendChild(tagBoxTitleSerie);
+        tagBoxPosition.appendChild(tagImageSerie);
+        tagBoxSeries.appendChild(tagBoxPosition);
+        tagBoxSeries.appendChild(tagFavouriteStar);
         parentBox.appendChild(tagBoxSeries);
         body.appendChild(parentBox);
-        tagBoxSeries.setAttribute('class', 'box-series');
-        listSeries = document.querySelectorAll('.box-series');
+
+        //Escuchamos el evento, cuando cliquemos una imagen se selecciona como favorita
         tagBoxSeries.addEventListener('click',favourites);
       }
-      console.log('listSeries',listSeries);
     });
 }
 
