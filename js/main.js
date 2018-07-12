@@ -72,7 +72,7 @@ function getSerie(){
 
 function favourites(event){
   console.log(event.currentTarget);
-  event.currentTarget.classList.add('background');
+  event.currentTarget.classList.toggle('background');
 }
 
 searchSerie.addEventListener('click',getSerie);
