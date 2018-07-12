@@ -47,13 +47,6 @@ h1 {
   margin-bottom: 50px;
 }
 
-.wrapper {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-row-gap: 10px;
-  grid-column-gap: 10px;
-}
-
 .box-series {
   text-align: center;
   position: relative;
@@ -96,6 +89,46 @@ h1 {
   font-weight: 400;
   color: hotpink;
   font-size: 18px;
+}
+
+.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+@media all and (min-width: 528px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+  }
+}
+
+@media all and (min-width: 768px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-row-gap: 10px;
+    grid-column-gap: 10px;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
