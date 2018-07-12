@@ -92,6 +92,18 @@ function favourites(event){
   event.currentTarget.classList.toggle('background');
 }
 
+function enter(event) {
+  var keyName = event.key;
+  if (keyName === 'Enter') {
+    getSerie();
+  }
+  else {
+    // alert('Pulsa la tecla Enter para empezar');
+  }
+}
+
+window.addEventListener('keydown', enter);
+
 searchSerie.addEventListener('click',getSerie);
 
 
