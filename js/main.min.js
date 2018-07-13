@@ -19,49 +19,60 @@ function getSerie(){
   var tagBoxTitleSerie;
   var tagBoxPosition;
   var tagFavouriteStar;
+  var tagCountry;
+  var contentPerson;
   parentBox.innerHTML = ' ';
   //console.log(inputSerie);
   //console.log('valor de input serie:', serie);
   //console.log('http://api.tvmaze.com/search/shows?q=' + serie);
-  fetch('http://api.tvmaze.com/search/shows?q=' + serie)
+  fetch('http://api.tvmaze.com/search/people?q=' + serie)
     .then(function(buscardorSeries){
       return buscardorSeries.json();
     })
     .then(function(buscardorSeriesJSON){
-      //console.log('json api series:',buscardorSeriesJSON);
+      console.log('json api series:',buscardorSeriesJSON);
       //console.log('tamaño json api series:',buscardorSeriesJSON.length);
-      //console.log('series de json api series:',buscardorSeriesJSON[0].show);
-      //console.log('series de json api series:',buscardorSeriesJSON[0].show.name);
-      //console.log('series de json api series:',buscardorSeriesJSON[0].show.image);
-      //console.log('series de json api series:',buscardorSeriesJSON[0].show.image.original);
+      console.log('series de json api series:',buscardorSeriesJSON[0].person);
+      console.log('series de json api series:',buscardorSeriesJSON[0].person.name);
+      console.log('series de json api series:',buscardorSeriesJSON[0].person.image);
+      console.log('country:',buscardorSeriesJSON[0].person.country);
+      //console.log('series de json api series:',buscardorSeriesJSON[0].person.image.medium);
       for(var i = 0; i < buscardorSeriesJSON.length; i++){
         tagBoxSeries = document.createElement('div');
         tagBoxSeries.setAttribute('class', 'box-series');
         tagImageSerie = document.createElement('img');
         tagImageSerie.setAttribute('class', 'image-serie');
         //console.log('muestrame todas las url de las imagenes:',buscardorSeriesJSON[i].show.image);
-        imageNoExist = buscardorSeriesJSON[i].show.image;
+        imageNoExist = buscardorSeriesJSON[i].person.image;
         if (imageNoExist === null ){
           //console.log('entro aqui en algun momento?');
           fillImage = 'https://via.placeholder.com/210x295/d0d0d0/46DAC0/?text=:(';
           tagImageSerie.src = fillImage;
         } else {
           //console.log('me vuelvo loca:', buscardorSeriesJSON[i].show.image);
-          imageSerie = buscardorSeriesJSON[i].show.image.medium;
+          imageSerie = buscardorSeriesJSON[i].person.image.medium;
           //console.log('tienes url de imagen?',imageSerie);
           //almacenamos la url de la imagen en el atributo src de la etiqueta imagen
           tagImageSerie.src = imageSerie;
         }
         //pasamos el bucle for por cada elemento del Json y recogemos el titulo
-        tileSerie = buscardorSeriesJSON[i].show.name;
+        tileSerie = buscardorSeriesJSON[i].person.name;
         //Creamos el contenido del titulo de la serie
         newContentSerieTitle = document.createTextNode(tileSerie);
+
+        // tagCountry = document.createElement('p');
+        // console.log('etiqueta pais:',tagCountry);
+        // contentPerson = buscardorSeriesJSON[i].person.country;
+        // console.log('pais:',contentPerson);
+        // tagCountry.appendChild(contentPerson);
+        // tagBoxTitleSerie.appendChild(tagCountry);
 
         // Cremaos nuestras etiquetas
         tagTitleSerie = document.createElement('p');
         tagBoxTitleSerie = document.createElement('div');
         tagBoxPosition = document.createElement('div');
         tagFavouriteStar = document.createElement('div');
+
 
 
         // Le damos clase a nuestras etiquetas
